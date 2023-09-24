@@ -1,43 +1,165 @@
 <!doctype html>
+
 <html>
   <meta charset="utf-8">
     <link href="styles-main.css" rel="stylesheet">
 
 <head>
-  <title>Kora for everyone</title>
+  <title>SheproKora</title>
+
+<!-- this is for the table1 and table2 -نتاىجي- -جميع النتاىج- -->
+
+<style>
+  .table1 {
+    border: 1px solid black;
+    background-color: lightblue;
+  }
+
+  .table2 {
+    border: 1px solid black;
+    background-color: lightgreen;
+  }
+  </style>
+
+<script>
+  function toggleTables() {
+    var content1 = document.getElementById("content1");
+    var content2 = document.getElementById("content2");
+    if (content1.style.display == "none") {
+      content1.style.display = "block";
+      content2.style.display = "none";
+    } else {
+      content1.style.display = "none";
+      content2.style.display = "block";
+    }
+  }
+  </script>
+    <!-- This is for choosing of the user -->
+    <script>
+      function selectWinner(winner) {
+        var team1Button = document.getElementById('team1');
+        var team2Button = document.getElementById('team2');
+        var tieButton = document.getElementById('Tie');
+
+        if (winner === 'team1') {
+          team1Button.style.backgroundColor = 'green';
+          team2Button.style.backgroundColor = 'red';
+          tieButton.style.backgroundColor = 'white';
+        } else if (winner === 'team2') {
+          team1Button.style.backgroundColor = 'red';
+          team2Button.style.backgroundColor = 'green';
+          tieButton.style.backgroundColor = 'white';
+        } else {
+          team1Button.style.backgroundColor = 'white';
+          team2Button.style.backgroundColor = 'white';
+          tieButton.style.backgroundColor = 'yellow';
+        }
+      }
+  </script>
+
+
 </head>
 
 <body>
+  <!-- this is for the app.py -flask app- -->
+  <form action="/main" method="post">
      <!-- this is the first part of the page! -->
     <header>
         <!-- This is search bar -->
-        <form action="#">
+        <form action="#" class="search bar">
+
                 <input type="text"name="query" placeholder="الدوري, الفريق او اللاعب">
-                <button type="submit">ابحث</button>
+
         </form>
-        <h1>#</h1>
-        <h1>#</h1>
-        <h1>#</h1>
+
         <!-- the pages! -->
         <nav class="nav-items">
+            <img src="\static\lo12.png" alt="Logo" width="100" height="100">
+            <img src="C:\Users\OSAMA\Desktop\" alt="Logo" width="100" height="100">
             <a href="http://127.0.0.1:8080/index1.html">كره القدم</a>
             <a href="http://127.0.0.1:8080/index2.html">السله</a>
             <a href="http://127.0.0.1:8080/index3.html">التنس</a>
-            <a href="http://127.0.0.1:8080/index4.html">الهوكي</a>
+            <a href="http://127.0.0.1:8080/index3.html">الهوكي</a>
+            <a class="my-results" href="http://127.0.0.1:8080/index3.html">نتائجي</a><!--This will be in the left side-->
           </nav>
-        <h1>#</h1>
-        <h1>#</h1>
+
     </header>
 
  <!-- this is the mid part of the page! -->
     <main>
-            <h1>#</h1>
+
+            <tbody>
+              <table id="table1" class="table1" onclick="toggleTables()">
+
+              <tr id="table1">
+                  <td>نتائجي</td>
+              </tr>
+
+              <tr id="content1">
+                <td><h2>مباريات مقترحه</h2></td>
+                <td><tr>
+                  <td>الدوري الايطالي</td>
+                </tr>
+                <tr>
+                  <td>نابولي  vs  امبولي</td>
+                </tr>
+                <tr>
+                  <td>الدوري المصري</td>
+                </tr>
+                <tr>
+                  <td> سرميكا vs الاهلي</td>
+                </tr>
+                <tr>
+                  <td>الدوري الاسباني</td>
+                </tr>
+                <tr>
+                  <td> ريال مدريد vs اتليتكو مدريد</td>
+                </tr>
+                </td>
+              </tr>
+              <!-- table2 -name of the table is جميع النتاىج- -->
+              </table>
+              <table id="table2" class="table2" onclick="toggleTables()" >
+
+                <tr id="table2">
+                  <td>جميع النتاىج</td>
+                </tr>
+                <tr id="content2">
+                  <td>this is the content of table2</td>
+                </tr>
+
+              </table>
+              <h3>الدوري المصري</h3>
+              <h2>الاهلي vs الزمالك</h2>
+                <h1>اختيار الفائز</h1>
+                <button id="team1" onclick="selectWinner('team1')">الاهلي</button>
+                <button id="team2" onclick="selectWinner('Tie')">تعادل</button>
+                <button id="team2" onclick="selectWinner('team2')">الزمالك</button>
+
+
+              <p>الاحد, 15 فبراير |10:00 م| استاد السويس</p>
+
+
+              <!-- News -->
+              <h1>الاخبار</h1>
+              <p>بعد انتظار الجمهور علي نار.. شاهد كرستاينو يذهب للنادي الاهلي</p>
+              <p>المصري البورسعيدي يغير اسمه الي النصر البورسعيدي</p>
+              <p>قرعة ابطال البلد تتم يوم |2/5/2024| تحت اشراف  محافظ البلد</p>
+            </tbody>
     </main>
+
+
+
+
+
+
 
  <!-- this is the last part of the page! -->
     <footer>
-            <h1>#</h1>
+            <h1>this is the footer part -لسه بنشتغل عليها-</h1>
     </footer>
+
+  </form>
 </body>
 
 </html>
